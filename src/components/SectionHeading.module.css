@@ -1,0 +1,31 @@
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.index {
+  composes: mono from '../styles/shared.module.css';
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
+.title {
+  composes: display from '../styles/shared.module.css';
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+  }
+}

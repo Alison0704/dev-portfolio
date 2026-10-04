@@ -1,0 +1,36 @@
+.glow {
+  --size: 28rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60; /* above the nav so it lights that too */
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(255, 244, 232, 0.7) 0%,
+    rgba(255, 240, 226, 0.52) 8%,
+    rgba(255, 236, 222, 0.32) 22%,
+    rgba(255, 232, 220, 0.17) 38%,
+    rgba(255, 230, 220, 0.07) 54%,
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* No pointer to follow on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .glow {
+    display: none;
+  }
+}

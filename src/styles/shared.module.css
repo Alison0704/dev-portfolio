@@ -1,0 +1,47 @@
+/*
+ * Shared building blocks, pulled into component modules via `composes`.
+ * Wrapped in a layer so component-level overrides always win, whatever order
+ * the bundler emits the stylesheets in.
+ */
+@layer shared {
+  .container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section {
+    position: relative;
+    padding: 7rem 0;
+    scroll-margin-top: var(--nav-height);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+  }
+
+  .display {
+    font-family: var(--font-display);
+  }
+
+  /* Small bordered mono label used for tags, counts and badges */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    border: 1px solid;
+    padding: 0.125rem 0.5rem;
+  }
+
+  .navLink {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    transition: color 0.2s;
+  }
+
+  .navLink:hover {
+    color: var(--accent);
+  }
+}

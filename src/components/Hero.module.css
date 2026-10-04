@@ -1,0 +1,148 @@
+.academics {
+  text-decoration: underline;
+}
+.careers {
+  font-weight: 600;
+  color: var(--accent);
+}
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--nav-height);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.vignette {
+  composes: overlay;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, rgba(20, 22, 31, 0.7) 100%);
+}
+
+.inner {
+  composes: container from '../styles/shared.module.css';
+  position: relative;
+  z-index: 10;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.content {
+  max-width: 48rem;
+  animation: fade-up 0.7s ease both;
+}
+
+.name {
+  composes: display from '../styles/shared.module.css';
+  margin-bottom: 1rem;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.surname {
+  color: var(--accent);
+}
+
+.role {
+  composes: display from '../styles/shared.module.css';
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--secondary);
+}
+
+.bio {
+  max-width: 32rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: var(--muted-foreground);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  composes: mono from '../styles/shared.module.css';
+  padding: 0.75rem 1.5rem;
+  border: 1px solid;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+
+.primary {
+  composes: button;
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+.primary:hover {
+  background-color: transparent;
+  color: var(--accent);
+}
+
+.ghost {
+  composes: button;
+  border-color: var(--border);
+  color: var(--foreground);
+}
+
+.ghost:hover {
+  border-color: var(--secondary);
+  color: var(--accent);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.5;
+}
+
+.scrollLabel {
+  composes: mono from '../styles/shared.module.css';
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 2.5rem;
+  background: linear-gradient(to bottom, var(--secondary), transparent);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

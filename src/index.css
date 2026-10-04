@@ -1,0 +1,96 @@
+/* Cascade order: resets < shared building blocks < unlayered component modules */
+@layer reset, shared;
+
+:root {
+  --background: #14161f;
+  --foreground: #e6e3ee;
+  --primary: #1b2f5e;
+  --secondary: #2a4b85;
+  --accent: #e8c9cf;
+  --muted: #1e2133;
+  --muted-foreground: #9b97aa;
+  --border: rgba(42, 75, 133, 0.3);
+  --info: #7bb8f5;
+  --success: #93c789;
+
+  --font-display: 'Oxanium', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --container-width: 72rem;
+  --nav-height: 4rem;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Base type scale: every size in the app is in rem, so this scales the whole page */
+    font-size: 112.5%;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--background);
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  ul {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
