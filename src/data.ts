@@ -4,22 +4,24 @@ export type ProjectCategory = 'hardware' | 'software'
 
 export type Project = {
   title: string
+  year: string
   category: ProjectCategory
   description: string
   tech: string[]
   github: string | null
-  status: 'Prototype' | 'In Progress' |'Published'
+  status: 'Open source' | 'Published' | 'Tape-out ready' | 'NDA restricted'
 }
 
 export const PROJECTS: Project[] = [
   {
     title: 'Jim-E Robot',
+    year: '2026',
     category: 'hardware',
     description:
       "Jim-E is an autonomous indoor hosting robot that uses computer vision, RRT* path planning, and event-driven control to guide guests to selected destinations.",
     tech: ['Python', 'HTML', 'ROS 2 Humble (rclpy)', 'OpenCV', 'MediaPipe', 'MATLAB/Simulink', 'KiCad', 'Raspberry Pi 4', 'ESP32', 'UART', 'RRT* path planning'],
     github: 'https://github.com/Alison0704/Capstone-JimE',
-    status: 'Prototype',
+    status: 'Open source',
   }
 ]
 
